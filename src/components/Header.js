@@ -9,14 +9,13 @@ const Header = () => {
       <NavbarBrand href="/">
         <img
           alt="Logo"
-          src="./logo.svg"
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
+          src="../images/logo-microsip.svg"
+          className="d-inline-block align-top img-fluid"
         />
-      
       </NavbarBrand>
-      <Nav.Link href="/new" className="header-icon">Agregar nuevo artículo <FcAddImage /></Nav.Link>
+      <Nav.Link href="/new" className="header-icon">
+        Agregar nuevo artículo <FcAddImage />
+      </Nav.Link>
     </Container>
   </Navbar>
    )

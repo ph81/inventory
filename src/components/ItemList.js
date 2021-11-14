@@ -12,32 +12,34 @@ const ItemList = () => {
 
    return (
       <>
-      <h3>Product list</h3>
-      {items.length > 0 ?
-      (
-         <Table striped bordered hover>
-         <thead>
-         <tr>
-            
-            <th>Nombre</th>
-            <th>Costo</th>
-            <th>IVA</th>
-            <th>Stock</th>
-            <th>Precio</th>
-            <th></th>
-            <th></th>
-         </tr>
-         </thead>
-         <tbody>
-         {items.map(item => 
-            <Item key={item.id} {...item} handleRemoveItem={handleRemoveItem} />
-         )}
-         </tbody>
-         </Table>
-      )
-      : (
-         <h4>Inventario vacío, agregue artículos por favor.</h4>
-      )}
+      <section className="container">
+         <h2>Inventario</h2>
+         {items.length > 0 ?
+         (
+            <Table striped bordered hover>
+            <thead>
+            <tr>
+               <th>Nombre</th>
+               <th>Costo</th>
+               <th>IVA</th>
+               <th>Stock</th>
+               <th>Precio</th>
+               <th></th>
+               <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {items.map(item => 
+               <Item key={item.id} {...item} handleRemoveItem={handleRemoveItem} />
+            )}
+            </tbody>
+            </Table>
+            )
+            : (
+               <h4>Inventario vacío, agregue artículos por favor.</h4>
+            )}
+         
+         </section>
       
       </>
    )

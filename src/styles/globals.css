@@ -44,12 +44,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 0;
-  margin: 0;
+ 
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 400;
-  background: #fff;
+  background: var(--clr-white);
 }
 
 hr {
@@ -66,6 +65,10 @@ hr {
    line-height: 1.25;
    margin-bottom: 0.75rem;
  }
+
+ h2 {
+   padding: 1.5rem;
+ }
  
  a {
    color: inherit;
@@ -79,14 +82,41 @@ hr {
  .header-icon {
   font-size: 1.5rem;
 }
+
  
 /* Bootstrap overrides */
+.nav-link {
+  font-weight: 500;
+}
+.img-fluid {
+  width: 30px;
+  height: auto; 
+}
  .btn {
    font-size: 1.2rem;
  }
  .btn-transparent {
     background-color: transparent;
  }
- 
+ .article-name {
+   width: 50%;
+ }
+ .amount {
+  width: 20%;
+ }
+ .form-label {
+   margin-bottom: 1.2rem;
+ }
+ .input-control {
+   margin-bottom: 1.5rem;
+ }
+ .submit-btn {
+   margin-right: 2rem;
+ }
+
+ /* Form */
+ .item-form {
+   margin-top: 1.5rem;
+ }
 
  

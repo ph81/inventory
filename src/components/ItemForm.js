@@ -17,17 +17,17 @@ const ItemForm = (props) => {
   const { nombre, costo, iva, stock, precio } = item;
 
   const [refs] = useState({
-    costo: useRef(0),
-    iva: useRef(0),
-    stock: useRef(0),
-    precio: useRef(0)
+    costo: useRef(nombre),
+    iva: useRef(iva),
+    stock: useRef(stock),
+    precio: useRef(precio)
   });
 
   const [vars] = useState({
-    fieldCosto: 0,
-    fieldIva: 0,
-    fieldStock: 0,
-    fieldPrecio: 0
+    fieldCosto: costo,
+    fieldIva: iva,
+    fieldStock: stock,
+    fieldPrecio: precio
   });
 
   const onChange = (e) => {
@@ -37,6 +37,15 @@ const ItemForm = (props) => {
     const fieldCosto = parseInt(refs.costo.current.value, 10);
     const fieldPrecio = parseInt(refs.precio.current.value, 10);
     switch (name) {
+      case "nombre":
+        if (nombre.length > 30) {
+          alert('Escriba un nombre más corto por favor')
+        }
+        setItem((prevState) => ({
+          ...prevState,
+          [name]: value
+        }));
+        break;
       case "costo":
         refs.iva.current.value = fieldCosto * 0.16;
         refs.precio.current.value = fieldCosto + parseInt(refs.iva.current.value);
@@ -81,15 +90,11 @@ const ItemForm = (props) => {
         stock,
         precio
       };
-      if (item.costo === 0) {
+        //getting dynamic fields values
         item.costo = parseFloat(refs.costo.current.value);
-      }
-      if (item.precio === 0) {
         item.precio = parseFloat(refs.precio.current.value);
-      }
-      if (item.iva === 0) {
         item.iva = parseFloat(refs.iva.current.value);
-      }
+      
       props.handleOnSubmit(item);
     } else {
       errorMsg = "Por favor llene los campos requeridos.";
@@ -109,26 +114,26 @@ const ItemForm = (props) => {
 
   return (
     <>
-      <div className="main-form">
-        <h2>Nuevo</h2>
+      <section className="container item-form rounded">
+        <h2>Nuevo artículo</h2>
         {errorMsg && <p className="errorMsg">{errorMsg}</p>}
         <Form onSubmit={handleOnSubmit}>
           <Form.Group controlId="nombre">
             <Form.Label>Nombre:</Form.Label>
             <Form.Control
-              className="input-control"
+              className="input-control article-name"
               type="text"
               name="nombre"
               value={nombre}
               required
               placeholder="Nombre del artículo"
-              onChange={handleInputChange}
+              onChange={onChange}
             />
           </Form.Group>
           <Form.Group controlId="costo">
             <Form.Label>Costo:</Form.Label>
             <Form.Control
-              className="input-control"
+              className="input-control amount"
               type="text"
               name="costo"
               defaultValue={vars.fieldCosto}
@@ -140,7 +145,7 @@ const ItemForm = (props) => {
           <Form.Group controlId="iva">
             <Form.Label>IVA:</Form.Label>
             <Form.Control
-              className="input-control"
+              className="input-control amount"
               type="text"
               name="iva"
               defaultValue={vars.fieldIva}
@@ -150,9 +155,9 @@ const ItemForm = (props) => {
             />
           </Form.Group>
           <Form.Group controlId="stock">
-            <Form.Label>Stock:</Form.Label>
+            <Form.Label>Unidades disponibles:</Form.Label>
             <Form.Control
-              className="input-control"
+              className="input-control amount"
               type="text"
               name="stock"
               value={stock}
@@ -163,7 +168,7 @@ const ItemForm = (props) => {
           <Form.Group controlId="precio">
             <Form.Label>Precio:</Form.Label>
             <Form.Control
-              className="input-control"
+              className="input-control amount"
               type="text"
               name="precio"
               defaultValue={vars.fieldPrecio}
@@ -184,7 +189,7 @@ const ItemForm = (props) => {
             Guardar
           </Button>
         </Form>
-      </div>
+      </section>
     </>
   );
 };
