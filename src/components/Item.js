@@ -15,19 +15,19 @@ const Item = ({
    const navigate = useNavigate();
 
    return (
-      <tr>
+      <tr className="align-middle">
          <td>{nombre}</td>
          <td>{costo}</td>
          <td>{iva}</td>
          <td>{stock}</td>
          <td>{precio}</td>
-         <td><Button variant="light" 
+         <td>
+            <Button variant="transparent" 
             data-bs-toggle="tooltip" data-bs-placement="top" title="Editar artículo"
             onClick={() => navigate(`/edit/${id}`)}>
             <FcEditImage />
             </Button>
-         </td>
-         <td><Button variant="light" 
+            <Button variant="transparent" 
             data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar artículo"
             onClick={() => handleRemoveItem(id)} >
             <FcEmptyTrash />

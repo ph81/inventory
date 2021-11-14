@@ -46,8 +46,7 @@ html,
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
- 
+  height: 100vh;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -82,11 +81,20 @@ hr {
    box-sizing: border-box;
  }
 
+ section {
+  flex: 1 0 auto;
+  margin-bottom: 18rem;
+}
+
  .header-icon {
   font-size: 1.5rem;
 }
 
- 
+ /* Form */
+ .item-form {
+  margin-top: 1.5rem;
+}
+
 /* Bootstrap overrides */
 
 .nav-link {
@@ -102,25 +110,25 @@ hr {
  .btn-transparent {
     background-color: transparent;
  }
- .article-name {
-   width: 50%;
- }
- .amount {
-  width: 20%;
- }
+
  .form-label {
    margin-bottom: 1.2rem;
  }
- .input-control {
+ 
+
+ .input-group {
+   width: 50%;
    margin-bottom: 1.5rem;
- }
- .submit-btn {
-   margin-right: 2rem;
+   .article-name {
+    width: 50%;
+  }
+  .amount {
+    width: 10%;
+  }
  }
 
- /* Form */
- .item-form {
-   margin-top: 1.5rem;
+ .submit-btn {
+   margin-right: 2rem;
  }
 
  

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, InputGroup } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
 
 const ItemForm = (props) => {
@@ -30,7 +30,7 @@ const ItemForm = (props) => {
     fieldPrecio: precio
   });
 
-  const onChange = (e) => {
+  const onChangeValues = (e) => {
     const { name, value } = e.target;
     vars[name] = value;
     
@@ -63,7 +63,7 @@ const ItemForm = (props) => {
         }));
         break;
       default:
-        refs[name].current.value = value;
+        //refs[name].current.value = value;
         setItem((prevState) => ({
           ...prevState,
           [name]: value
@@ -102,16 +102,6 @@ const ItemForm = (props) => {
     setErrorMsg(errorMsg);
   };
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-
-    setItem((prevState) => ({
-      ...prevState,
-      [name]: value
-    }));
-    
-  };
-
   return (
     <>
       <section className="container item-form rounded">
@@ -120,6 +110,7 @@ const ItemForm = (props) => {
         <Form onSubmit={handleOnSubmit}>
           <Form.Group controlId="nombre">
             <Form.Label>Nombre:</Form.Label>
+            <InputGroup>
             <Form.Control
               className="input-control article-name"
               type="text"
@@ -127,11 +118,15 @@ const ItemForm = (props) => {
               value={nombre}
               required
               placeholder="Nombre del artículo"
-              onChange={onChange}
+              onChange={onChangeValues}
             />
+            </InputGroup>
+            
           </Form.Group>
           <Form.Group controlId="costo">
             <Form.Label>Costo:</Form.Label>
+            <InputGroup>
+            <InputGroup.Text>$</InputGroup.Text>
             <Form.Control
               className="input-control amount"
               type="text"
@@ -139,34 +134,42 @@ const ItemForm = (props) => {
               defaultValue={vars.fieldCosto}
               ref={refs.costo}
               placeholder="Costo"
-              onChange={onChange}
+              onChange={onChangeValues}
             />
+            </InputGroup>
           </Form.Group>
           <Form.Group controlId="iva">
             <Form.Label>IVA:</Form.Label>
+            <InputGroup>
+            <InputGroup.Text>$</InputGroup.Text>
             <Form.Control
               className="input-control amount"
               type="text"
               name="iva"
               defaultValue={vars.fieldIva}
               ref={refs.iva}
-              onChange={onChange}
+              onChange={onChangeValues}
               readOnly
             />
+            </InputGroup>
           </Form.Group>
           <Form.Group controlId="stock">
             <Form.Label>Unidades disponibles:</Form.Label>
+            <InputGroup>
             <Form.Control
               className="input-control amount"
               type="text"
               name="stock"
               value={stock}
               placeholder="Unidades disponibles"
-              onChange={handleInputChange}
+              onChange={onChangeValues}
             />
+            </InputGroup>
           </Form.Group>
           <Form.Group controlId="precio">
             <Form.Label>Precio:</Form.Label>
+            <InputGroup>
+            <InputGroup.Text>$</InputGroup.Text>
             <Form.Control
               className="input-control amount"
               type="text"
@@ -174,8 +177,9 @@ const ItemForm = (props) => {
               defaultValue={vars.fieldPrecio}
               ref={refs.precio}
               placeholder="Precio"
-              onChange={onChange}
+              onChange={onChangeValues}
             />
+            </InputGroup>
           </Form.Group>
           <Button
             variant="secondary"

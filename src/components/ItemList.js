@@ -16,7 +16,7 @@ const ItemList = () => {
          <h2>Inventario</h2>
          {items.length > 0 ?
          (
-            <Table striped bordered hover>
+            <Table bordered hover>
             <thead>
             <tr>
                <th>Artículo</th>
@@ -24,8 +24,7 @@ const ItemList = () => {
                <th>IVA</th>
                <th>Stock</th>
                <th>Precio</th>
-               <th></th>
-               <th></th>
+               <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
