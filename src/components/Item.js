@@ -18,7 +18,7 @@ const Item = ({
       <tr>
          <td>{nombre}</td>
          <td>{costo}</td>
-         <td>{iva}%</td>
+         <td>{iva}</td>
          <td>{stock}</td>
          <td>{precio}</td>
          <td><Button variant="light" 
