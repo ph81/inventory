@@ -68,8 +68,9 @@ hr {
    margin-bottom: 0.75rem;
  }
 
- h2 {
+ h1 {
    padding: 1.5rem;
+   font-weight: 600;
  }
  
  a {
@@ -81,9 +82,8 @@ hr {
    box-sizing: border-box;
  }
 
- section {
-  flex: 1 0 auto;
-  margin-bottom: 18rem;
+ main {
+  margin-bottom: 22rem;
 }
 
  .header-icon {
@@ -115,7 +115,6 @@ hr {
    margin-bottom: 1.2rem;
  }
  
-
  .input-group {
    width: 50%;
    margin-bottom: 1.5rem;

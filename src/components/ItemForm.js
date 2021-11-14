@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Form, Button, InputGroup } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from 'react-router-dom';
 
 const ItemForm = (props) => {
   const [item, setItem] = useState(() => {
@@ -15,6 +16,7 @@ const ItemForm = (props) => {
 
   const [errorMsg, setErrorMsg] = useState("");
   const { nombre, costo, iva, stock, precio } = item;
+  const navigate = useNavigate();
 
   const [refs] = useState({
     costo: useRef(nombre),
@@ -34,8 +36,8 @@ const ItemForm = (props) => {
     const { name, value } = e.target;
     vars[name] = value;
     
-    const fieldCosto = parseInt(refs.costo.current.value, 10);
-    const fieldPrecio = parseInt(refs.precio.current.value, 10);
+    const fieldCosto = parseFloat(refs.costo.current.value);
+    const fieldPrecio = parseFloat(refs.precio.current.value);
     switch (name) {
       case "nombre":
         if (nombre.length > 30) {
@@ -47,16 +49,16 @@ const ItemForm = (props) => {
         }));
         break;
       case "costo":
-        refs.iva.current.value = fieldCosto * 0.16;
-        refs.precio.current.value = fieldCosto + parseInt(refs.iva.current.value);
+        refs.iva.current.value = (fieldCosto * 0.16).toFixed(2);
+        refs.precio.current.value = (fieldCosto + parseFloat(refs.iva.current.value)).toFixed(2);
         setItem((prevState) => ({
           ...prevState,
           [name]: value
         }));
         break;
       case "precio":
-        refs.costo.current.value = fieldPrecio / 1.16;
-        refs.iva.current.value = parseInt(refs.costo.current.value) * 0.16;
+        refs.costo.current.value = (fieldPrecio / 1.16).toFixed(2);
+        refs.iva.current.value = (parseFloat(refs.costo.current.value) * 0.16).toFixed(2);
         setItem((prevState) => ({
           ...prevState,
           [name]: value
@@ -91,9 +93,9 @@ const ItemForm = (props) => {
         precio
       };
         //getting dynamic fields values
-        item.costo = parseFloat(refs.costo.current.value);
-        item.precio = parseFloat(refs.precio.current.value);
-        item.iva = parseFloat(refs.iva.current.value);
+        item.costo = refs.costo.current.value;
+        item.precio = refs.precio.current.value;
+        item.iva = refs.iva.current.value;
       
       props.handleOnSubmit(item);
     } else {
@@ -120,8 +122,7 @@ const ItemForm = (props) => {
               placeholder="Nombre del artículo"
               onChange={onChangeValues}
             />
-            </InputGroup>
-            
+            </InputGroup>     
           </Form.Group>
           <Form.Group controlId="costo">
             <Form.Label>Costo:</Form.Label>
@@ -185,7 +186,7 @@ const ItemForm = (props) => {
             variant="secondary"
             type="submit"
             className="submit-btn"
-            onClick={() => console.log(item)}
+            onClick={() => navigate('/')}
           >
             Cancelar
           </Button>

@@ -13,7 +13,7 @@ const ItemList = () => {
    return (
       <>
       <section className="container">
-         <h2>Inventario</h2>
+         <h1>Inventario</h1>
          {items.length > 0 ?
          (
             <Table bordered hover>
