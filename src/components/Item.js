@@ -22,11 +22,13 @@ const Item = ({
          <td>{stock}</td>
          <td>{precio}</td>
          <td><Button variant="light" 
+            data-bs-toggle="tooltip" data-bs-placement="top" title="Editar artículo"
             onClick={() => navigate(`/edit/${id}`)}>
             <FcEditImage />
             </Button>
          </td>
          <td><Button variant="light" 
+            data-bs-toggle="tooltip" data-bs-placement="top" title="Borrar artículo"
             onClick={() => handleRemoveItem(id)} >
             <FcEmptyTrash />
             </Button>

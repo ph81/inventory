@@ -19,7 +19,7 @@ const ItemList = () => {
             <Table striped bordered hover>
             <thead>
             <tr>
-               <th>Nombre</th>
+               <th>Artículo</th>
                <th>Costo</th>
                <th>IVA</th>
                <th>Stock</th>

@@ -10,6 +10,8 @@ const Header = () => {
         <img
           alt="Logo"
           src="../images/logo-microsip.svg"
+          width="30"
+          height="auto"
           className="d-inline-block align-top img-fluid"
         />
       </NavbarBrand>
