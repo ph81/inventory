@@ -16,6 +16,7 @@ const ItemList = () => {
          <h1>Inventario</h1>
          {items.length > 0 ?
          (
+            <div className="table-responsive">
             <Table bordered hover>
             <thead>
             <tr>
@@ -33,6 +34,7 @@ const ItemList = () => {
             )}
             </tbody>
             </Table>
+            </div>
             )
             : (
                <h4>Inventario vacío, agregue artículos por favor.</h4>
