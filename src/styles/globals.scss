@@ -86,9 +86,15 @@ hr {
   margin-bottom: 22rem;
 }
 
- .header-icon {
-  font-size: 1.5rem;
-}
+
+@media all and (max-width: 768px) {
+  h1 {
+    font-weight: 500;
+  }
+  .header-icon {
+    font-size: 1.1rem;
+  }
+ }
 
  /* Form */
  .item-form {
@@ -129,5 +135,21 @@ hr {
  .submit-btn {
    margin-right: 2rem;
  }
-
+/*
+ @mixin width {
+  width: auto !important;
+}
+table {
+  &.table-fit {
+      @include width;
+      table-layout: auto !important;
+      thead th, tfoot th  {
+          @include width;
+      }
+      tbody td, tfoot td {
+          @include width;
+      }
+  }
+}
+*/
  
