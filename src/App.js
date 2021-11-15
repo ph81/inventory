@@ -6,8 +6,7 @@ import { useLocalStorage } from './utils/hooks/useLocalStorage';
 import Products from './pages/Products';
 import NewProduct from './pages/NewProduct';
 import EditProduct from './pages/EditProduct';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/globals.css';
+import './styles/globals.scss';
 
 const App = () => {
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Nav, Navbar, NavbarBrand, Container } from 'react-bootstrap';
 import { FcAddImage } from 'react-icons/fc';
+import Logo from '../images/logo-microsip.svg'
 
 const Header = () => {
    return (
@@ -9,14 +10,15 @@ const Header = () => {
       <NavbarBrand href="/">
         <img
           alt="Logo"
-          src="./logo.svg"
-          width="30"
-          height="30"
+          src={Logo}
+          width="150"
+          height="auto"
           className="d-inline-block align-top"
         />
-      
       </NavbarBrand>
-      <Nav.Link href="/new" className="header-icon">Agregar nuevo artículo <FcAddImage /></Nav.Link>
+      <Nav.Link href="/new" className="header-icon">
+        Agregar nuevo artículo <FcAddImage />
+      </Nav.Link>
     </Container>
   </Navbar>
    )

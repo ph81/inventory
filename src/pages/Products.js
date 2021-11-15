@@ -1,14 +1,16 @@
 import React from 'react';
 import Header from '../components/Header';
-import ProductList from '../components/ItemList';
+import ItemList from '../components/ItemList'
+import Footer from '../components/Footer';
 
 const Products = () => {
    return (
       <>
       <Header />
-      <main>
-         <ProductList />
+      <main className="flex-shrink-0">
+         <ItemList />
       </main>
+      <Footer />
       </>
    )
 }
